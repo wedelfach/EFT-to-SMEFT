@@ -1,0 +1,1342 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     51675,       1334]
+NotebookOptionsPosition[     48862,       1249]
+NotebookOutlinePosition[     49208,       1264]
+CellTagsIndexPosition[     49165,       1261]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"SetDirectory", "[", "\"\<D:\\\\matma\>\"", "]"}], ";"}], 
+   RowBox[{"(*", 
+    RowBox[{"Path", " ", "to", " ", "the", " ", "xAct", " ", "file"}], "*)"}],
+    "\n", 
+   RowBox[{"<<", "xAct`xCoba`"}]}]}]], "Input",
+ CellChangeTimes->{{3.912239884285459*^9, 3.9122398852523174`*^9}, 
+   3.9471325417873*^9, 3.947136696938365*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"------------------------------------------------------------\
+\"\>"], "Print",
+ CellChangeTimes->{3.9472293914750085`*^9, 3.947229435668054*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Package xAct`xPerm`  version \"\>", 
+   "\[InvisibleSpace]", "\<\"1.2.3\"\>", "\[InvisibleSpace]", "\<\", \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2015", ",", "8", ",", "23"}], "}"}]}],
+  SequenceForm["Package xAct`xPerm`  version ", "1.2.3", ", ", {2015, 8, 23}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293914750085`*^9, 3.947229435672044*^9}],
+
+Cell[BoxData["\<\"CopyRight (C) 2003-2020, Jose M. Martin-Garcia, under the \
+General Public License.\"\>"], "Print",
+ CellChangeTimes->{3.9472293914750085`*^9, 3.9472294356770334`*^9}],
+
+Cell[BoxData["\<\"Connecting to external MinGW executable...\"\>"], "Print",
+ CellChangeTimes->{3.9472293914750085`*^9, 3.9472294357943783`*^9}],
+
+Cell[BoxData["\<\"Connection established.\"\>"], "Print",
+ CellChangeTimes->{3.9472293914750085`*^9, 3.9472294358033857`*^9}],
+
+Cell[BoxData["\<\"------------------------------------------------------------\
+\"\>"], "Print",
+ CellChangeTimes->{3.9472293914750085`*^9, 3.947229435808378*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Package xAct`xTensor`  version \"\>", 
+   "\[InvisibleSpace]", "\<\"1.1.4\"\>", "\[InvisibleSpace]", "\<\", \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2020", ",", "2", ",", "16"}], "}"}]}],
+  SequenceForm[
+  "Package xAct`xTensor`  version ", "1.1.4", ", ", {2020, 2, 16}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293914750085`*^9, 3.947229435818327*^9}],
+
+Cell[BoxData["\<\"CopyRight (C) 2002-2020, Jose M. Martin-Garcia, under the \
+General Public License.\"\>"], "Print",
+ CellChangeTimes->{3.9472293914750085`*^9, 3.9472294358233023`*^9}],
+
+Cell[BoxData["\<\"------------------------------------------------------------\
+\"\>"], "Print",
+ CellChangeTimes->{3.9472293914750085`*^9, 3.947229435993846*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Package xAct`xCoba`  version \"\>", 
+   "\[InvisibleSpace]", "\<\"0.8.5\"\>", "\[InvisibleSpace]", "\<\", \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"2020", ",", "2", ",", "16"}], "}"}]}],
+  SequenceForm["Package xAct`xCoba`  version ", "0.8.5", ", ", {2020, 2, 16}],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293914750085`*^9, 3.9472294359998446`*^9}],
+
+Cell[BoxData["\<\"CopyRight (C) 2005-2020, David Yllanes and Jose M. \
+Martin-Garcia, under the General Public License.\"\>"], "Print",
+ CellChangeTimes->{3.9472293914750085`*^9, 3.9472294360042067`*^9}],
+
+Cell[BoxData["\<\"------------------------------------------------------------\
+\"\>"], "Print",
+ CellChangeTimes->{3.9472293914750085`*^9, 3.947229436010192*^9}],
+
+Cell[BoxData["\<\"These packages come with ABSOLUTELY NO WARRANTY; for \
+details type Disclaimer[]. This is free software, and you are welcome to \
+redistribute it under certain conditions. See the General Public License for \
+details.\"\>"], "Print",
+ CellChangeTimes->{3.9472293914750085`*^9, 3.9472294360151772`*^9}],
+
+Cell[BoxData["\<\"------------------------------------------------------------\
+\"\>"], "Print",
+ CellChangeTimes->{3.9472293914750085`*^9, 3.9472294360201626`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"$CVVerbose", "=", "False"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"$PrePrint", "=", "ScreenDollarIndices"}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Makes", " ", "dummy", " ", "indices", " ", "easier", " ", "to", " ", 
+    "read"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Infromation", " ", "about", " ", "renormalized", " ", "coefficient"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Wn", "=", "W1"}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Renormalized", " ", "W"}], "-", 
+    RowBox[{"coeafficient", " ", "name"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"IL", "=", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"-", "c1"}], ",", 
+      RowBox[{"-", "c2"}], ",", 
+      RowBox[{"-", "c3"}], ",", 
+      RowBox[{"-", "c4"}], ",", 
+      RowBox[{"-", "c5"}], ",", 
+      RowBox[{"-", "c6"}]}], "}"}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"W", " ", "indices"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Symm", "=", 
+    RowBox[{"Hold", "[", 
+     RowBox[{"Symmetric", "[", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "2", ",", "3", ",", "4", ",", "5", ",", "6"}], "}"}],
+       "]"}], "]"}]}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Symmetries", " ", "of", " ", "W"}], "-", "coefficient"}], "*)"}],
+   "\n", 
+  RowBox[{"(*", 
+   RowBox[{"Index", " ", "lists"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"n1", "=", "70"}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"Adjoint", " ", "indices", " ", "number"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"n2", "=", "50"}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"Scalar", " ", "indices", " ", "number"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"l1", "=", 
+    RowBox[{"Join", "[", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"ToExpression", "[", 
+         RowBox[{"\"\<b\>\"", "<>", 
+          RowBox[{"ToString", "[", "i", "]"}]}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "1", ",", "15"}], "}"}]}], "]"}], ",", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"ToExpression", "[", 
+         RowBox[{"\"\<a\>\"", "<>", 
+          RowBox[{"ToString", "[", "i", "]"}]}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "1", ",", "n1"}], "}"}]}], "]"}]}], "]"}]}], ";"}],
+   " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"l2", "=", 
+   RowBox[{"Join", "[", 
+    RowBox[{
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"ToExpression", "[", 
+        RowBox[{"\"\<c\>\"", "<>", 
+         RowBox[{"ToString", "[", "i", "]"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", "15"}], "}"}]}], "]"}], ",", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"ToExpression", "[", 
+        RowBox[{"\"\<d\>\"", "<>", 
+         RowBox[{"ToString", "[", "i", "]"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", "n2"}], "}"}]}], "]"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"l1a", "=", 
+   RowBox[{"Join", "[", 
+    RowBox[{
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"ToExpression", "[", 
+        RowBox[{"\"\<B\>\"", "<>", 
+         RowBox[{"ToString", "[", "i", "]"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", "15"}], "}"}]}], "]"}], ",", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"ToExpression", "[", 
+        RowBox[{"\"\<A\>\"", "<>", 
+         RowBox[{"ToString", "[", "i", "]"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", "n2"}], "}"}]}], "]"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"l2a", "=", 
+    RowBox[{"Join", "[", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"ToExpression", "[", 
+         RowBox[{"\"\<C\>\"", "<>", 
+          RowBox[{"ToString", "[", "i", "]"}]}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "1", ",", "15"}], "}"}]}], "]"}], ",", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"ToExpression", "[", 
+         RowBox[{"\"\<D\>\"", "<>", 
+          RowBox[{"ToString", "[", "i", "]"}]}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "1", ",", "n2"}], "}"}]}], "]"}]}], "]"}]}], ";"}],
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", "Manifolds", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"DefManifold", "[", 
+  RowBox[{"MA", ",", "4", ",", "l1"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"DefManifold", "[", 
+   RowBox[{"MS", ",", "4", ",", "l2"}], "]"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Metrics", " ", "on", " ", "gauge", " ", "and", " ", "scalar", " ", 
+    "representation", " ", "manifolds"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"DefMetric", "[", 
+  RowBox[{"1", ",", 
+   RowBox[{"\[Eta]1", "[", 
+    RowBox[{
+     RowBox[{"-", "b2"}], ",", 
+     RowBox[{"-", "b3"}]}], "]"}], ",", "PD", ",", 
+   RowBox[{"SymbolOfCovD", "->", 
+    RowBox[{"{", 
+     RowBox[{"\"\<,\>\"", ",", "\"\<\[PartialD]\>\""}], "}"}]}], ",", 
+   RowBox[{"FlatMetric", "\[Rule]", "True"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"DefMetric", "[", 
+   RowBox[{"1", ",", 
+    RowBox[{"\[Eta]2", "[", 
+     RowBox[{
+      RowBox[{"-", "c2"}], ",", 
+      RowBox[{"-", "c3"}]}], "]"}], ",", "PD", ",", 
+    RowBox[{"SymbolOfCovD", "->", 
+     RowBox[{"{", 
+      RowBox[{"\"\<,\>\"", ",", "\"\<\[PartialD]\>\""}], "}"}]}], ",", 
+    RowBox[{"FlatMetric", "\[Rule]", "True"}]}], "]"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"boundles", " ", "and", " ", "bases"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"DefVBundle", "[", 
+  RowBox[{"GAUG", ",", "MA", ",", "4", ",", "l1a", ",", 
+   RowBox[{"Dagger", "\[Rule]", "Real"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"DefBasis", "[", 
+   RowBox[{"Gaug", ",", "GAUG", ",", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "1", ",", "2", ",", "3"}], "}"}], ",", 
+    RowBox[{"BasisColor", "\[Rule]", "Red"}]}], "]"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"DefVBundle", "[", 
+  RowBox[{"SCAL", ",", "MS", ",", "4", ",", "l2a", ",", 
+   RowBox[{"Dagger", "\[Rule]", "Real"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"DefBasis", "[", 
+   RowBox[{"Scal", ",", "SCAL", ",", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "2", ",", "3", ",", "4"}], "}"}], ",", 
+    RowBox[{"BasisColor", "\[Rule]", "Blue"}]}], "]"}], "\[IndentingNewLine]",
+   "\n"}], "\n"}], "Input",
+ CellChangeTimes->{
+  3.912240294167163*^9, {3.912240348001605*^9, 3.912240461057746*^9}, {
+   3.912240673324909*^9, 3.912240676747856*^9}, {3.9122444056253867`*^9, 
+   3.912244442494913*^9}, {3.912244475376071*^9, 3.912244491316881*^9}, {
+   3.912244646492819*^9, 3.912244670523899*^9}, {3.9125751778833456`*^9, 
+   3.912575178926656*^9}, 3.9125798008315177`*^9, {3.912580132505192*^9, 
+   3.912580137109894*^9}, {3.9126814514650784`*^9, 3.9126814577622414`*^9}, {
+   3.912750581805764*^9, 3.912750661792585*^9}, {3.9471317524861307`*^9, 
+   3.947131823860958*^9}, {3.9471325466863713`*^9, 3.947132618990939*^9}, {
+   3.9471371003544006`*^9, 3.9471371040030184`*^9}, {3.9472281281856537`*^9, 
+   3.9472281287274*^9}, 3.94722906945334*^9, 3.9472291141564274`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefManifold", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"manifold \"\>", "\[InvisibleSpace]", "MA", 
+   "\[InvisibleSpace]", "\<\". \"\>", "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefManifold, ": Defining ", 
+   "manifold ", $CellContext`MA, ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.947229436542291*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefVBundle", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"vbundle \"\>", "\[InvisibleSpace]", "TangentMA", 
+   "\[InvisibleSpace]", "\<\". \"\>", "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefVBundle, ": Defining ", 
+   "vbundle ", $CellContext`TangentMA, ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.947229436573208*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefManifold", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"manifold \"\>", "\[InvisibleSpace]", "MS", 
+   "\[InvisibleSpace]", "\<\". \"\>", "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefManifold, ": Defining ", 
+   "manifold ", $CellContext`MS, ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.947229436611108*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefVBundle", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"vbundle \"\>", "\[InvisibleSpace]", "TangentMS", 
+   "\[InvisibleSpace]", "\<\". \"\>", "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefVBundle, ": Defining ", 
+   "vbundle ", $CellContext`TangentMS, ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.94722943664003*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"symmetric metric tensor \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"\[Eta]1", "[", 
+    RowBox[{
+     RowBox[{"-", "b2"}], ",", 
+     RowBox[{"-", "b3"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "symmetric metric tensor ", 
+   $CellContext`\[Eta]1[-$CellContext`b2, -$CellContext`b3], ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.9472294366699533`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"antisymmetric tensor \"\>", "\[InvisibleSpace]", 
+   RowBox[{"epsilon\[Eta]1", "[", 
+    RowBox[{
+     RowBox[{"-", "a1"}], ",", 
+     RowBox[{"-", "a10"}], ",", 
+     RowBox[{"-", "a11"}], ",", 
+     RowBox[{"-", "a12"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "antisymmetric tensor ", 
+   $CellContext`epsilon\[Eta]1[-$CellContext`a1, -$CellContext`a10, \
+-$CellContext`a11, -$CellContext`a12], ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.9472294366749363`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"tetrametric \"\>", "\[InvisibleSpace]", 
+   RowBox[{"Tetra\[Eta]1", "[", 
+    RowBox[{
+     RowBox[{"-", "a1"}], ",", 
+     RowBox[{"-", "a10"}], ",", 
+     RowBox[{"-", "a11"}], ",", 
+     RowBox[{"-", "a12"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm["** ", xAct`xTensor`DefTensor, ": Defining ", "tetrametric ", 
+   $CellContext`Tetra\[Eta]1[-$CellContext`a1, -$CellContext`a10, \
+-$CellContext`a11, -$CellContext`a12], ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.9472294366819177`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"tetrametric \"\>", "\[InvisibleSpace]", 
+   RowBox[{"Tetra\[Eta]1\[Dagger]", "[", 
+    RowBox[{
+     RowBox[{"-", "a1"}], ",", 
+     RowBox[{"-", "a10"}], ",", 
+     RowBox[{"-", "a11"}], ",", 
+     RowBox[{"-", "a12"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm["** ", xAct`xTensor`DefTensor, ": Defining ", "tetrametric ", 
+   $CellContext`Tetra\[Eta]1\[Dagger][-$CellContext`a1, -$CellContext`a10, \
+-$CellContext`a11, -$CellContext`a12], ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.947229436687934*^9}],
+
+Cell[BoxData["\<\"** DefMetric: Associating fiducial flat derivative PD to \
+metric.\"\>"], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.9472294366938868`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"weight +2 density \"\>", "\[InvisibleSpace]", 
+   RowBox[{"Det\[Eta]1", "[", "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"Determinant.\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "weight +2 density ", 
+   $CellContext`Det\[Eta]1[], ". ", "Determinant."],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.9472294366989*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"symmetric metric tensor \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"\[Eta]2", "[", 
+    RowBox[{
+     RowBox[{"-", "c2"}], ",", 
+     RowBox[{"-", "c3"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "symmetric metric tensor ", 
+   $CellContext`\[Eta]2[-$CellContext`c2, -$CellContext`c3], ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.947229436704858*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"antisymmetric tensor \"\>", "\[InvisibleSpace]", 
+   RowBox[{"epsilon\[Eta]2", "[", 
+    RowBox[{
+     RowBox[{"-", "c1"}], ",", 
+     RowBox[{"-", "c10"}], ",", 
+     RowBox[{"-", "c11"}], ",", 
+     RowBox[{"-", "c12"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "antisymmetric tensor ", 
+   $CellContext`epsilon\[Eta]2[-$CellContext`c1, -$CellContext`c10, \
+-$CellContext`c11, -$CellContext`c12], ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.947229436710841*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"tetrametric \"\>", "\[InvisibleSpace]", 
+   RowBox[{"Tetra\[Eta]2", "[", 
+    RowBox[{
+     RowBox[{"-", "c1"}], ",", 
+     RowBox[{"-", "c10"}], ",", 
+     RowBox[{"-", "c11"}], ",", 
+     RowBox[{"-", "c12"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm["** ", xAct`xTensor`DefTensor, ": Defining ", "tetrametric ", 
+   $CellContext`Tetra\[Eta]2[-$CellContext`c1, -$CellContext`c10, \
+-$CellContext`c11, -$CellContext`c12], ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.947229436716826*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"tetrametric \"\>", "\[InvisibleSpace]", 
+   RowBox[{"Tetra\[Eta]2\[Dagger]", "[", 
+    RowBox[{
+     RowBox[{"-", "c1"}], ",", 
+     RowBox[{"-", "c10"}], ",", 
+     RowBox[{"-", "c11"}], ",", 
+     RowBox[{"-", "c12"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm["** ", xAct`xTensor`DefTensor, ": Defining ", "tetrametric ", 
+   $CellContext`Tetra\[Eta]2\[Dagger][-$CellContext`c1, -$CellContext`c10, \
+-$CellContext`c11, -$CellContext`c12], ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.9472294367238073`*^9}],
+
+Cell[BoxData["\<\"** DefMetric: Associating fiducial flat derivative PD to \
+metric.\"\>"], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.947229436730788*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"weight +2 density \"\>", "\[InvisibleSpace]", 
+   RowBox[{"Det\[Eta]2", "[", "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"Determinant.\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "weight +2 density ", 
+   $CellContext`Det\[Eta]2[], ". ", "Determinant."],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.947229436737771*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefVBundle", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"vbundle \"\>", "\[InvisibleSpace]", "GAUG", 
+   "\[InvisibleSpace]", "\<\". \"\>", "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefVBundle, ": Defining ", 
+   "vbundle ", $CellContext`GAUG, ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.947229436743755*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefBasis", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"basis \"\>", "\[InvisibleSpace]", "Gaug", 
+   "\[InvisibleSpace]", "\<\". \"\>", "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xCoba`DefBasis, ": Defining ", "basis ", $CellContext`Gaug, 
+   ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.947229436749737*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefCovD", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"parallel derivative \"\>", "\[InvisibleSpace]", 
+   RowBox[{"PDGaug", "[", 
+    RowBox[{"-", "a1"}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefCovD, ": Defining ", "parallel derivative ", 
+   $CellContext`PDGaug[-$CellContext`a1], ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.947229436755723*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"torsion tensor \"\>", "\[InvisibleSpace]", 
+   RowBox[{"TorsionPDGaug", "[", 
+    RowBox[{"a1", ",", 
+     RowBox[{"-", "a10"}], ",", 
+     RowBox[{"-", "a11"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "torsion tensor ", 
+   $CellContext`TorsionPDGaug[$CellContext`a1, -$CellContext`a10, \
+-$CellContext`a11], ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.947229436762702*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"non-symmetric Christoffel tensor \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"ChristoffelPDGaug", "[", 
+    RowBox[{"a1", ",", 
+     RowBox[{"-", "a10"}], ",", 
+     RowBox[{"-", "a11"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", 
+   "non-symmetric Christoffel tensor ", 
+   $CellContext`ChristoffelPDGaug[$CellContext`a1, -$CellContext`a10, \
+-$CellContext`a11], ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.9472294367686853`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"vanishing Riemann tensor \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"RiemannPDGaug", "[", 
+    RowBox[{
+     RowBox[{"-", "a1"}], ",", 
+     RowBox[{"-", "a10"}], ",", 
+     RowBox[{"-", "a11"}], ",", "a12"}], "]"}], 
+   "\[InvisibleSpace]", "\<\". \"\>", "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "vanishing Riemann tensor ", 
+   $CellContext`RiemannPDGaug[-$CellContext`a1, -$CellContext`a10, \
+-$CellContext`a11, $CellContext`a12], ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.9472294367746696`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"vanishing Ricci tensor \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"RicciPDGaug", "[", 
+    RowBox[{
+     RowBox[{"-", "a1"}], ",", 
+     RowBox[{"-", "a10"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "vanishing Ricci tensor ", 
+   $CellContext`RicciPDGaug[-$CellContext`a1, -$CellContext`a10], ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.9472294367816515`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"nonsymmetric AChristoffel tensor \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"AChristoffelPDGaug", "[", 
+    RowBox[{"A1", ",", 
+     RowBox[{"-", "a10"}], ",", 
+     RowBox[{"-", "A11"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", 
+   "nonsymmetric AChristoffel tensor ", 
+   $CellContext`AChristoffelPDGaug[$CellContext`A1, -$CellContext`a10, \
+-$CellContext`A11], ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.9472294367866373`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"vanishing FRiemann tensor \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"FRiemannPDGaug", "[", 
+    RowBox[{
+     RowBox[{"-", "a1"}], ",", 
+     RowBox[{"-", "a10"}], ",", 
+     RowBox[{"-", "A11"}], ",", "A12"}], "]"}], 
+   "\[InvisibleSpace]", "\<\". \"\>", "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "vanishing FRiemann tensor ", 
+   $CellContext`FRiemannPDGaug[-$CellContext`a1, -$CellContext`a10, \
+-$CellContext`A11, $CellContext`A12], ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.947229436793619*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"antisymmetric +1 density \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"etaUpGaug", "[", 
+    RowBox[{"A1", ",", "A10", ",", "A11", ",", "A12"}], "]"}], 
+   "\[InvisibleSpace]", "\<\". \"\>", "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "antisymmetric +1 density ", 
+   $CellContext`etaUpGaug[$CellContext`A1, $CellContext`A10, \
+$CellContext`A11, $CellContext`A12], ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.9472294367996025`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"antisymmetric -1 density \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"etaDownGaug", "[", 
+    RowBox[{
+     RowBox[{"-", "A1"}], ",", 
+     RowBox[{"-", "A10"}], ",", 
+     RowBox[{"-", "A11"}], ",", 
+     RowBox[{"-", "A12"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "antisymmetric -1 density ", 
+   $CellContext`etaDownGaug[-$CellContext`A1, -$CellContext`A10, \
+-$CellContext`A11, -$CellContext`A12], ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.9472294368055906`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefVBundle", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"vbundle \"\>", "\[InvisibleSpace]", "SCAL", 
+   "\[InvisibleSpace]", "\<\". \"\>", "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefVBundle, ": Defining ", 
+   "vbundle ", $CellContext`SCAL, ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.947229436811572*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefBasis", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"basis \"\>", "\[InvisibleSpace]", "Scal", 
+   "\[InvisibleSpace]", "\<\". \"\>", "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xCoba`DefBasis, ": Defining ", "basis ", $CellContext`Scal, 
+   ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.9472294368424883`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefCovD", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"parallel derivative \"\>", "\[InvisibleSpace]", 
+   RowBox[{"PDScal", "[", 
+    RowBox[{"-", "c1"}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefCovD, ": Defining ", "parallel derivative ", 
+   $CellContext`PDScal[-$CellContext`c1], ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.947229436849362*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"torsion tensor \"\>", "\[InvisibleSpace]", 
+   RowBox[{"TorsionPDScal", "[", 
+    RowBox[{"c1", ",", 
+     RowBox[{"-", "c10"}], ",", 
+     RowBox[{"-", "c11"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "torsion tensor ", 
+   $CellContext`TorsionPDScal[$CellContext`c1, -$CellContext`c10, \
+-$CellContext`c11], ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.9472294368543386`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"non-symmetric Christoffel tensor \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"ChristoffelPDScal", "[", 
+    RowBox[{"c1", ",", 
+     RowBox[{"-", "c10"}], ",", 
+     RowBox[{"-", "c11"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", 
+   "non-symmetric Christoffel tensor ", 
+   $CellContext`ChristoffelPDScal[$CellContext`c1, -$CellContext`c10, \
+-$CellContext`c11], ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.9472294368603315`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"vanishing Riemann tensor \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"RiemannPDScal", "[", 
+    RowBox[{
+     RowBox[{"-", "c1"}], ",", 
+     RowBox[{"-", "c10"}], ",", 
+     RowBox[{"-", "c11"}], ",", "c12"}], "]"}], 
+   "\[InvisibleSpace]", "\<\". \"\>", "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "vanishing Riemann tensor ", 
+   $CellContext`RiemannPDScal[-$CellContext`c1, -$CellContext`c10, \
+-$CellContext`c11, $CellContext`c12], ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.94722943686633*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"vanishing Ricci tensor \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"RicciPDScal", "[", 
+    RowBox[{
+     RowBox[{"-", "c1"}], ",", 
+     RowBox[{"-", "c10"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "vanishing Ricci tensor ", 
+   $CellContext`RicciPDScal[-$CellContext`c1, -$CellContext`c10], ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.947229436871294*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"nonsymmetric AChristoffel tensor \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"AChristoffelPDScal", "[", 
+    RowBox[{"C1", ",", 
+     RowBox[{"-", "c10"}], ",", 
+     RowBox[{"-", "C11"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", 
+   "nonsymmetric AChristoffel tensor ", 
+   $CellContext`AChristoffelPDScal[$CellContext`C1, -$CellContext`c10, \
+-$CellContext`C11], ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.947229436877279*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"vanishing FRiemann tensor \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"FRiemannPDScal", "[", 
+    RowBox[{
+     RowBox[{"-", "c1"}], ",", 
+     RowBox[{"-", "c10"}], ",", 
+     RowBox[{"-", "C11"}], ",", "C12"}], "]"}], 
+   "\[InvisibleSpace]", "\<\". \"\>", "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "vanishing FRiemann tensor ", 
+   $CellContext`FRiemannPDScal[-$CellContext`c1, -$CellContext`c10, \
+-$CellContext`C11, $CellContext`C12], ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.947229436882267*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"antisymmetric +1 density \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"etaUpScal", "[", 
+    RowBox[{"C1", ",", "C10", ",", "C11", ",", "C12"}], "]"}], 
+   "\[InvisibleSpace]", "\<\". \"\>", "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "antisymmetric +1 density ", 
+   $CellContext`etaUpScal[$CellContext`C1, $CellContext`C10, \
+$CellContext`C11, $CellContext`C12], ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.947229436888253*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"antisymmetric -1 density \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"etaDownScal", "[", 
+    RowBox[{
+     RowBox[{"-", "C1"}], ",", 
+     RowBox[{"-", "C10"}], ",", 
+     RowBox[{"-", "C11"}], ",", 
+     RowBox[{"-", "C12"}]}], "]"}], "\[InvisibleSpace]", "\<\". \"\>", 
+   "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefTensor, ": Defining ", "antisymmetric -1 density ", 
+   $CellContext`etaDownScal[-$CellContext`C1, -$CellContext`C10, \
+-$CellContext`C11, -$CellContext`C12], ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293923286963`*^9, 3.9472294368942013`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Coupling", " ", "definitions"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"DefTensor", "[", 
+     RowBox[{
+      RowBox[{"\[CapitalLambda]", "[", 
+       RowBox[{"c1", ",", "c2", ",", "c3", ",", "c4"}], "]"}], ",", "MS", ",", 
+      RowBox[{"Symmetric", "[", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "2", ",", "3", ",", "4"}], "}"}], "]"}]}], "]"}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"DefTensor", "[", 
+     RowBox[{
+      RowBox[{"\[CapitalTheta]", "[", 
+       RowBox[{"b1", ",", "c1", ",", "c2"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"MA", ",", "MA"}], "}"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"DefTensor", "[", 
+     RowBox[{
+      RowBox[{"f", "[", 
+       RowBox[{"b1", ",", "b2", ",", "b3"}], "]"}], ",", "MA", ",", 
+      RowBox[{"Antisymmetric", "[", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "2", ",", "3"}], "}"}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"DefConstantSymbol", "[", "g1", "]"}], "\[IndentingNewLine]", 
+   RowBox[{"DefConstantSymbol", "[", "g2", "]"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"\[CapitalLambda]tab", "=", 
+     RowBox[{"6", "*", "\[Lambda]", "*", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"KroneckerDelta", "[", 
+          RowBox[{"i", ",", "j", ",", "k", ",", "l"}], "]"}], "+", 
+         RowBox[{
+          RowBox[{"1", "/", "3"}], "*", 
+          RowBox[{"(", 
+           RowBox[{"1", "-", 
+            RowBox[{"KroneckerDelta", "[", 
+             RowBox[{"i", ",", "j", ",", "k", ",", "l"}], "]"}]}], ")"}], "*", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"KroneckerDelta", "[", 
+              RowBox[{"i", ",", "j"}], "]"}], 
+             RowBox[{"KroneckerDelta", "[", 
+              RowBox[{"k", ",", "l"}], "]"}]}], "+", 
+            RowBox[{
+             RowBox[{"KroneckerDelta", "[", 
+              RowBox[{"i", ",", "k"}], "]"}], 
+             RowBox[{"KroneckerDelta", "[", 
+              RowBox[{"j", ",", "l"}], "]"}]}], "+", 
+            RowBox[{
+             RowBox[{"KroneckerDelta", "[", 
+              RowBox[{"i", ",", "l"}], "]"}], 
+             RowBox[{"KroneckerDelta", "[", 
+              RowBox[{"j", ",", "k"}], "]"}]}]}], ")"}]}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "1", ",", "4"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", "1", ",", "4"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"k", ",", "1", ",", "4"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"l", ",", "1", ",", "4"}], "}"}]}], "]"}]}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\[CapitalTheta]0", "=", 
+     RowBox[{
+      RowBox[{"-", "I"}], " ", 
+      RowBox[{"1", "/", "2"}], "g1", " ", 
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+         {"0", 
+          RowBox[{"-", "1"}], "0", "0"},
+         {"1", "0", "0", "0"},
+         {"0", "0", "0", 
+          RowBox[{"-", "1"}]},
+         {"0", "0", "1", "0"}
+        }], "\[NoBreak]", ")"}]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\[CapitalTheta]1", "=", 
+     RowBox[{
+      RowBox[{"-", "I"}], " ", 
+      RowBox[{"1", "/", "2"}], " ", "g2", 
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+         {"0", "0", "0", 
+          RowBox[{"-", "1"}]},
+         {"0", "0", "1", "0"},
+         {"0", 
+          RowBox[{"-", "1"}], "0", "0"},
+         {"1", "0", "0", "0"}
+        }], "\[NoBreak]", ")"}]}]}], ";", " ", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{
+      "Imaginry", " ", "unit", " ", "is", " ", "added", " ", "because", " ", 
+       "it", " ", "was", " ", "absorbed", " ", "into", " ", "\[Sigma]"}], "-", 
+      RowBox[{
+      "matrices", " ", "as", " ", "\[CapitalTheta]", " ", "is", " ", "purely",
+        " ", "imaginary", " ", 
+       RowBox[{"rep", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"\[CapitalTheta]2", "=", 
+     RowBox[{
+      RowBox[{"-", "I"}], " ", 
+      RowBox[{"1", "/", "2"}], " ", "g2", 
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+         {"0", "0", "1", "0"},
+         {"0", "0", "0", "1"},
+         {
+          RowBox[{"-", "1"}], "0", "0", "0"},
+         {"0", 
+          RowBox[{"-", "1"}], "0", "0"}
+        }], "\[NoBreak]", ")"}]}]}], ";", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{
+      "Imaginry", " ", "unit", " ", "is", " ", "added", " ", "because", " ", 
+       "it", " ", "was", " ", "absorbed", " ", "into", " ", "\[Sigma]"}], "-", 
+      RowBox[{
+      "matrices", " ", "as", " ", "\[CapitalTheta]", " ", "is", " ", "purely",
+        " ", "imaginary", " ", 
+       RowBox[{"rep", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"\[CapitalTheta]3", "=", 
+     RowBox[{
+      RowBox[{"-", "I"}], " ", 
+      RowBox[{"1", "/", "2"}], "g2", 
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+         {"0", 
+          RowBox[{"-", "1"}], "0", "0"},
+         {"1", "0", "0", "0"},
+         {"0", "0", "0", "1"},
+         {"0", "0", 
+          RowBox[{"-", "1"}], "0"}
+        }], "\[NoBreak]", ")"}]}]}], ";", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{
+      "Imaginry", " ", "unit", " ", "is", " ", "added", " ", "because", " ", 
+       "it", " ", "was", " ", "absorbed", " ", "into", " ", "\[Sigma]"}], "-", 
+      RowBox[{
+      "matrices", " ", "as", " ", "\[CapitalTheta]", " ", "is", " ", "purely",
+        " ", "imaginary", " ", 
+       RowBox[{"rep", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"\[CapitalTheta]tab", "=", 
+     RowBox[{"{", 
+      RowBox[{
+      "\[CapitalTheta]0", ",", " ", "\[CapitalTheta]1", ",", 
+       "\[CapitalTheta]2", ",", "\[CapitalTheta]3"}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ftab", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{"0", ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", "4"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"j", ",", "1", ",", "4"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"k", ",", "1", ",", "4"}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ftab", "[", 
+      RowBox[{"[", 
+       RowBox[{
+        RowBox[{"2", ";;", "4"}], ",", 
+        RowBox[{"2", ";;", "4"}], ",", 
+        RowBox[{"2", ";;", "4"}]}], "]"}], "]"}], "=", 
+     RowBox[{"Normal", "[", 
+      RowBox[{"LeviCivitaTensor", "[", "3", "]"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ComponentValue", "[", 
+     RowBox[{
+      RowBox[{"ComponentArray", "[", 
+       RowBox[{"\[CapitalLambda]", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"C1", ",", "Scal"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"C2", ",", "Scal"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"C3", ",", "Scal"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"C4", ",", "Scal"}], "}"}]}], "]"}], "]"}], ",", 
+      "\[CapitalLambda]tab"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ComponentValue", "[", 
+     RowBox[{
+      RowBox[{"ComponentArray", "[", 
+       RowBox[{"\[CapitalTheta]", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"A1", ",", "Gaug"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"C1", ",", "Scal"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"C2", ",", "Scal"}], "}"}]}], "]"}], "]"}], ",", 
+      "\[CapitalTheta]tab"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ComponentValue", "[", 
+     RowBox[{
+      RowBox[{"ComponentArray", "[", 
+       RowBox[{"f", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"B1", ",", "Gaug"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"B2", ",", "Gaug"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"B3", ",", "Gaug"}], "}"}]}], "]"}], "]"}], ",", "ftab"}], 
+     "]"}], ";"}], "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.9472291253196163`*^9, 3.947229156540409*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"tensor \"\>", "\[InvisibleSpace]", 
+   RowBox[{"\[CapitalLambda]", "[", 
+    RowBox[{"c1", ",", "c2", ",", "c3", ",", "c4"}], "]"}], 
+   "\[InvisibleSpace]", "\<\". \"\>", "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm["** ", xAct`xTensor`DefTensor, ": Defining ", "tensor ", 
+   $CellContext`\[CapitalLambda][$CellContext`c1, $CellContext`c2, \
+$CellContext`c3, $CellContext`c4], ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293927249384`*^9, 3.947229436935092*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"tensor \"\>", "\[InvisibleSpace]", 
+   RowBox[{"\[CapitalTheta]", "[", 
+    RowBox[{"b1", ",", "c1", ",", "c2"}], "]"}], 
+   "\[InvisibleSpace]", "\<\". \"\>", "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm["** ", xAct`xTensor`DefTensor, ": Defining ", "tensor ", 
+   $CellContext`\[CapitalTheta][$CellContext`b1, $CellContext`c1, \
+$CellContext`c2], ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293927249384`*^9, 3.947229436939125*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefTensor", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"tensor \"\>", "\[InvisibleSpace]", 
+   RowBox[{"f", "[", 
+    RowBox[{"b1", ",", "b2", ",", "b3"}], "]"}], 
+   "\[InvisibleSpace]", "\<\". \"\>", "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm["** ", xAct`xTensor`DefTensor, ": Defining ", "tensor ", 
+   $CellContext`f[$CellContext`b1, $CellContext`b2, $CellContext`b3], ". ", 
+   ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293927249384`*^9, 3.9472294369460907`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefConstantSymbol", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"constant symbol \"\>", "\[InvisibleSpace]", "g1",
+    "\[InvisibleSpace]", "\<\". \"\>", "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefConstantSymbol, ": Defining ", 
+   "constant symbol ", $CellContext`g1, ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293927249384`*^9, 3.947229436952076*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"** \"\>", "\[InvisibleSpace]", "DefConstantSymbol", 
+   "\[InvisibleSpace]", "\<\": Defining \"\>", 
+   "\[InvisibleSpace]", "\<\"constant symbol \"\>", "\[InvisibleSpace]", "g2",
+    "\[InvisibleSpace]", "\<\". \"\>", "\[InvisibleSpace]", "\<\"\"\>"}],
+  SequenceForm[
+  "** ", xAct`xTensor`DefConstantSymbol, ": Defining ", 
+   "constant symbol ", $CellContext`g2, ". ", ""],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.9472293927249384`*^9, 3.9472294369580593`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Set", " ", "diretory"}], ",", " ", 
+    RowBox[{
+     RowBox[{"to", " ", "which", " ", "coupling", " ", "and", " ", "W"}], "-", 
+     RowBox[{"definitions", " ", "are", " ", "saved"}]}]}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"SetDirectory", "[", 
+     RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Save", " ", "serialized", " ", "definitions"}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"DumpSave", "[", 
+     RowBox[{"\"\<thetaU(1)xSU(2)def.mx\>\"", ",", "\[CapitalTheta]"}], "]"}],
+     ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"DumpSave", "[", 
+     RowBox[{"\"\<lambdadef.mx\>\"", ",", "\[CapitalLambda]"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"DumpSave", "[", 
+     RowBox[{"\"\<fU(1)xSU(2)def.mx\>\"", ",", "f"}], "]"}], ";"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.947228789198781*^9, 3.9472289554048758`*^9}, {
+   3.9472290060609317`*^9, 3.947229025965796*^9}, {3.9472291889992566`*^9, 
+   3.947229365301086*^9}, 3.947229413788604*^9, {3.947229532806078*^9, 
+   3.9472295374164696`*^9}, {3.9472296897730103`*^9, 3.947229694761921*^9}, {
+   3.9472299312096043`*^9, 3.9472299318742747`*^9}}]
+},
+WindowSize->{1520, 771},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (September 21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 410, 10, 87, "Input"],
+Cell[CellGroupData[{
+Cell[1015, 36, 162, 2, 22, "Print"],
+Cell[1180, 40, 431, 9, 22, "Print"],
+Cell[1614, 51, 185, 2, 22, "Print"],
+Cell[1802, 55, 144, 1, 22, "Print"],
+Cell[1949, 58, 125, 1, 22, "Print"],
+Cell[2077, 61, 162, 2, 22, "Print"],
+Cell[2242, 65, 438, 10, 22, "Print"],
+Cell[2683, 77, 185, 2, 22, "Print"],
+Cell[2871, 81, 162, 2, 22, "Print"],
+Cell[3036, 85, 433, 9, 22, "Print"],
+Cell[3472, 96, 203, 2, 22, "Print"],
+Cell[3678, 100, 162, 2, 22, "Print"],
+Cell[3843, 104, 319, 4, 41, "Print"],
+Cell[4165, 110, 164, 2, 22, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4378, 118, 7420, 202, 797, "Input"],
+Cell[CellGroupData[{
+Cell[11823, 324, 496, 10, 22, "Print"],
+Cell[12322, 336, 506, 10, 22, "Print"],
+Cell[12831, 348, 496, 10, 22, "Print"],
+Cell[13330, 360, 505, 10, 22, "Print"],
+Cell[13838, 372, 672, 15, 22, "Print"],
+Cell[14513, 389, 784, 17, 22, "Print"],
+Cell[15300, 408, 759, 16, 22, "Print"],
+Cell[16062, 426, 775, 16, 22, "Print"],
+Cell[16840, 444, 168, 2, 22, "Print"],
+Cell[17011, 448, 574, 11, 22, "Print"],
+Cell[17588, 461, 670, 15, 22, "Print"],
+Cell[18261, 478, 782, 17, 22, "Print"],
+Cell[19046, 497, 757, 16, 22, "Print"],
+Cell[19806, 515, 777, 16, 22, "Print"],
+Cell[20586, 533, 166, 2, 22, "Print"],
+Cell[20755, 537, 576, 11, 22, "Print"],
+Cell[21334, 550, 496, 10, 22, "Print"],
+Cell[21833, 562, 486, 10, 22, "Print"],
+Cell[22322, 574, 586, 12, 22, "Print"],
+Cell[22911, 588, 694, 15, 22, "Print"],
+Cell[23608, 605, 748, 17, 22, "Print"],
+Cell[24359, 624, 772, 17, 22, "Print"],
+Cell[25134, 643, 680, 15, 22, "Print"],
+Cell[25817, 660, 750, 17, 22, "Print"],
+Cell[26570, 679, 774, 17, 22, "Print"],
+Cell[27347, 698, 698, 14, 22, "Print"],
+Cell[28048, 714, 790, 18, 22, "Print"],
+Cell[28841, 734, 496, 10, 22, "Print"],
+Cell[29340, 746, 488, 10, 22, "Print"],
+Cell[29831, 758, 586, 12, 22, "Print"],
+Cell[30420, 772, 696, 15, 22, "Print"],
+Cell[31119, 789, 748, 17, 22, "Print"],
+Cell[31870, 808, 769, 17, 22, "Print"],
+Cell[32642, 827, 678, 15, 22, "Print"],
+Cell[33323, 844, 748, 17, 22, "Print"],
+Cell[34074, 863, 774, 17, 22, "Print"],
+Cell[34851, 882, 696, 14, 22, "Print"],
+Cell[35550, 898, 790, 18, 22, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[36389, 922, 8107, 220, 946, "Input"],
+Cell[CellGroupData[{
+Cell[44521, 1146, 661, 12, 22, "Print"],
+Cell[45185, 1160, 631, 12, 22, "Print"],
+Cell[45819, 1174, 607, 12, 22, "Print"],
+Cell[46429, 1188, 522, 10, 22, "Print"],
+Cell[46954, 1200, 524, 10, 22, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[47505, 1214, 1353, 33, 217, "Input"]
+}
+]
+*)
+
